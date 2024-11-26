@@ -1,0 +1,21 @@
+<!-- news/templates/news/news_list.html -->  
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>News List</title>  
+</head>  
+<body>  
+    <h1>News</h1>  
+    <a href="{% url 'post_create' %}">Create new post</a>  
+    <ul>  
+        {% for post in posts %}  
+            <li>  
+                <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>  
+                <p>{{ post.preview }}</p>  
+            </li>  
+        {% endfor %}  
+    </ul>  
+</body>  
+</html>

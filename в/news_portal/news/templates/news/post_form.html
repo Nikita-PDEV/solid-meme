@@ -1,0 +1,22 @@
+<!-- news/templates/news/post_form.html -->  
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Create/Edit Post</title>  
+</head>  
+<body>  
+    <h1>{% if post %}Edit Post{% else %}Create Post{% endif %}</h1>  
+    <form method="POST">  
+        {% csrf_token %}  
+        <input type="text" name="title" placeholder="Title" value="{{ post.title|default_if_none:'' }}"><br>  
+        <textarea name="content" placeholder="Content">{{ post.content|default_if_none:'' }}</textarea><br>  
+        <select name="post_type">  
+            <option value="AR">Article</option>  
+            <option value="NW">News</option>  
+        </select><br>  
+        <button type="submit">Save</button>  
+    </form>  
+</body>  
+</html>
